@@ -22,13 +22,44 @@ class ViewController: UIViewController {
     
     @IBAction func addFunc(_ sender: Any) {
         
-        charArray.insert(uppercaseLetters.randomElement()!, at: self.currentIndex + 1)
+        var visibleRect    = CGRect()
+        visibleRect.origin = collectionView.contentOffset
+        visibleRect.size   = collectionView.bounds.size
+        let visiblePoint   = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+
+        guard let visibleIndexPath: IndexPath = collectionView.indexPathForItem(at: visiblePoint) else { return }
+        print(visibleIndexPath.row)
+        
+        charArray.insert(uppercaseLetters.randomElement()!, at: visibleIndexPath.row + 1)
+        
+        let indexPath = IndexPath(row: visibleIndexPath.row + 1, section: 0)
+
+        print(indexPath)
+        
+        if let coll  = collectionView {
+            for cell in coll.visibleCells {
+                let indexPath: IndexPath? = coll.indexPath(for: cell)
+                if ((indexPath?.row)!  < charArray.count - 1){
+                    let indexPath1: IndexPath?
+                    indexPath1 = IndexPath.init(row: (indexPath?.row)! + 1, section: (indexPath?.section)!)
+                    
+                    coll.scrollToItem(at: indexPath1!, at: .right, animated: true)
+                }
+                else{
+                    let indexPath1: IndexPath?
+                    indexPath1 = IndexPath.init(row: 0, section: (indexPath?.section)!)
+                    coll.scrollToItem(at: indexPath1!, at: .left, animated: true)
+                }
+                
+            }
+        }
         
         self.collectionView.reloadData()
         
     }
     
     @IBAction func deleteFunc(_ sender: Any) {
+        
     }
     
     override func viewDidLoad() {
@@ -81,12 +112,5 @@ extension ViewController :  UICollectionViewDelegate , UICollectionViewDataSourc
         return 1
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        for cell in collectionView.visibleCells {
-            let indexPath = collectionView.indexPath(for: cell)
-            print(indexPath?.row)
-            self.currentIndex = indexPath!.row
-        }
-    }
 }
 
