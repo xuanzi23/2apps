@@ -17,6 +17,7 @@
 		922BFAFD235059C300B869C7 /* _AppsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922BFAFC235059C300B869C7 /* _AppsTests.swift */; };
 		922BFB08235059C300B869C7 /* _AppsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922BFB07235059C300B869C7 /* _AppsUITests.swift */; };
 		922BFB1823506AF800B869C7 /* testing.html in Resources */ = {isa = PBXBuildFile; fileRef = 922BFB1723506AF700B869C7 /* testing.html */; };
+		922BFB2B23509AAB00B869C7 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922BFB2A23509AAB00B869C7 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		922BFB07235059C300B869C7 /* _AppsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _AppsUITests.swift; sourceTree = "<group>"; };
 		922BFB09235059C300B869C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		922BFB1723506AF700B869C7 /* testing.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = testing.html; sourceTree = "<group>"; };
+		922BFB2A23509AAB00B869C7 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				922BFAE4235059BE00B869C7 /* SceneDelegate.swift */,
 				922BFAE6235059BE00B869C7 /* ViewController.swift */,
 				922BFAE8235059BE00B869C7 /* Main.storyboard */,
+				922BFB2A23509AAB00B869C7 /* CollectionViewCell.swift */,
 				922BFAEE235059C300B869C7 /* Assets.xcassets */,
 				922BFAF0235059C300B869C7 /* LaunchScreen.storyboard */,
 				922BFAF3235059C300B869C7 /* Info.plist */,
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				922BFB2B23509AAB00B869C7 /* CollectionViewCell.swift in Sources */,
 				922BFAE7235059BE00B869C7 /* ViewController.swift in Sources */,
 				922BFAED235059BE00B869C7 /* _Apps.xcdatamodeld in Sources */,
 				922BFAE3235059BE00B869C7 /* AppDelegate.swift in Sources */,

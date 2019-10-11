@@ -18,23 +18,32 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="x4x-tP-aQm">
                                 <rect key="frame" x="0.0" y="44" width="375" height="570"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bNN-sV-Ail">
-                                    <size key="itemSize" width="368" height="549"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="bNN-sV-Ail">
+                                    <size key="itemSize" width="371" height="549"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="d9G-9x-X6Y">
-                                        <rect key="frame" x="3.5" y="0.0" width="368" height="549"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="SGl-3K-Bsa" customClass="CollectionViewCell" customModule="_Apps" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="10.5" width="371" height="549"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RGR-yC-OGu">
-                                            <rect key="frame" x="0.0" y="0.0" width="368" height="549"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TX7-7b-T8a">
+                                            <rect key="frame" x="0.0" y="0.0" width="371" height="549"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YtJ-Oj-JrO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="371" height="549"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </webView>
+                                            </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="368" height="549"/>
+                                        <connections>
+                                            <outlet property="webView" destination="YtJ-Oj-JrO" id="b5M-Yj-hN9"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -43,8 +52,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="APs-7A-Izw">
-                        <barButtonItem key="leftBarButtonItem" title="Add" id="AdO-4P-pXQ"/>
-                        <barButtonItem key="rightBarButtonItem" title="Delete" id="0Np-g6-lhc"/>
+                        <barButtonItem key="leftBarButtonItem" title="Add" id="AdO-4P-pXQ">
+                            <connections>
+                                <action selector="addFunc:" destination="BYZ-38-t0r" id="eFp-LF-w7i"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Delete" id="0Np-g6-lhc">
+                            <connections>
+                                <action selector="deleteFunc:" destination="BYZ-38-t0r" id="93Q-ls-WCA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="x4x-tP-aQm" id="fhj-qe-LdH"/>
