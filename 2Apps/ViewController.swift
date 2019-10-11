@@ -12,14 +12,17 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var charArray = ["A" , "B" , "C"]
+    var currentIndex : Int = 0
+    
+    var charArray = [String]()
     
     let backgroundColorArraay = [String]()
     
+    let uppercaseLetters = (65...90).map {String(UnicodeScalar($0))}
+    
     @IBAction func addFunc(_ sender: Any) {
-        let uppercaseLetters = (65...90).map {String(UnicodeScalar($0))}
         
-        charArray.append(uppercaseLetters.randomElement()!)
+        charArray.insert(uppercaseLetters.randomElement()!, at: self.currentIndex + 1)
         
         self.collectionView.reloadData()
         
@@ -37,6 +40,10 @@ class ViewController: UIViewController {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.reloadData()
+        
+        charArray.append(self.uppercaseLetters.randomElement()!)
+        charArray.append(self.uppercaseLetters.randomElement()!)
+        charArray.append(self.uppercaseLetters.randomElement()!)
         
     }
 }
@@ -72,6 +79,14 @@ extension ViewController :  UICollectionViewDelegate , UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        for cell in collectionView.visibleCells {
+            let indexPath = collectionView.indexPath(for: cell)
+            print(indexPath?.row)
+            self.currentIndex = indexPath!.row
+        }
     }
 }
 
